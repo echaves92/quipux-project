@@ -1,0 +1,38 @@
+
+<div 
+*ngFor="let item of dataInfoContact" 
+class="text-center">
+    <div class="text-left m-1">
+        <strong>{{item.titulo}}</strong>
+    </div>  
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Dirección</strong></p>
+        {{item.Direccion}}<br>
+        {{item.ciudad}}
+    </div>   
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Correo</strong></p>
+        {{item.Correo}}
+    </div>
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Sitio Web</strong></p>
+        <p class="text-primary">{{item.Web}}</p>
+    </div>
+    <div class="my-4"> 
+        <p class="p-0 m-0"><strong>Red Socila</strong></p>
+        <p class="text-primary">{{item.Red}}<br>
+        {{item.Red2}}</p>
+    </div>
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Dirección de correspondencia de correo</strong></p>
+        {{item.correspondencia }}
+    </div>
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Números de teléfonos fijo</strong></p>
+        {{item.telefonos }}
+    </div>
+    <div class="my-4">
+        <p class="p-0 m-0"><strong>Celular</strong></p>
+        {{item.telefonos2  }}
+    </div>
+</div>

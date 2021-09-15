@@ -1,0 +1,133 @@
+<div class="wrapper container-fluid p-0">
+  <!-- Sidebar -->
+  <nav id="sidebar" [ngClass]="{'active': containerActive}"><!-- -->
+      <div class="One sidebar-header position-relative" *ngIf="containerActive">
+          <nav class=" navbar-expand-lg navbar-light  " >
+            <div class=" container-fluid position-relative p-0">
+                <div  class="d-flex flex-row-reverse w-100">
+                    <button type="button" id="sidebarCollapse" class="menu-one btn bg-transparent  top-0 start-0 py-3" (click)="clicked()">
+                        <i class="  fas fa-align-left text-white" ></i>
+                    </button>
+                 </div>
+                 <div  class="d-flex flex-row-reverse w-100">
+                    <button type="button" id="sidebarCollapse" class="menu-one btn bg-transparent  top-0 start-0 py-3" >
+                        <i class="  fas fa-align-left text-white" ></i>
+                    </button>
+                 </div>
+                 <div  class="d-flex flex-row-reverse w-100">
+                    <button type="button" id="sidebarCollapse" class="menu-one btn bg-transparent  top-0 start-0 py-3" >
+                        <i class="  fas fa-align-left text-white" ></i>
+                    </button>
+                 </div>
+            </div>
+           </nav>   
+      </div>
+      <div class="Two sidebar-header" *ngIf="!containerActive">
+        <nav class="d-flex bg-transparent">
+          <div class="">
+              <button type="button" id="sidebarCollapse" class="btn bg-transparent" (click)="clicked()">
+                  <i class="fas fa-align-left text-white"></i>
+              </button>
+          </div>
+          <div class="d-flex flex-row-reverse w-100">
+              <a class="float-end px-3 p-1 w-75" href="#">
+              <img  class="px-3 p-1 w-100" src="assets/imgs/Logo-Quipux-Global.png"/>
+              </a>
+            </div>
+         </nav>
+         <ul class="list-unstyled components">
+            <li class=""><!--active-->
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-align-left mx-3"></i>
+                    Empresas
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li >                   
+                        <a href="#" routerLink="/empresas" (click)="clickedDatosVista('Empresa')">Empresa</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-align-left mx-3"></i>
+                    Artículos
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li >
+                        <a href="#" routerLink="/articulos" (click)="clickedDatosVista('Articulo')">Artículo</a>       
+                              
+                    </li> 
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-align-left mx-3"></i>
+                    colaboradores
+                </a>
+                <ul class="collapse list-unstyled" id="">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                </ul>
+            </li> 
+        </ul>
+      </div>
+  </nav>
+  <div id="content" class="w-100 ">
+      <div  class="container mx-0 py-4 w-100 mw-100 bg-white">
+          <div class="row" *ngIf="'Articulo' == StringDatoVista || 'Empresa' == StringDatoVista  ">
+              <div class="col-12 col-md-9 d-flex">
+                <i class="fas fa-align-left mx-3 h-100"></i>
+                <p class="p-0 m-0 linea-tiempo"> Empresa &nbsp;/ &nbsp;</p><p class="p-0 m-0 linea-tiempo" *ngIf="'Empresa' == StringDatoVista "> Nombre &nbsp;</p> <p class="p-0 m-0 linea-tiempo"> {{StringDatoVista}} </p>
+              </div>
+              <div class="col-3 d-none d-md-flex flex-row-reverse">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle bg-transparent border-white text-dark" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Usuario Apellido
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button">1</button>
+                      <button class="dropdown-item" type="button">2 </button>
+                      <button class="dropdown-item" type="button">3 </button>
+                    </div>
+                  </div>
+                  <i class="fas fa-align-left mx-3 h-100"></i>
+              </div>
+          </div>
+          <div class="row" *ngIf="!StringDatoVista ">
+            <div class="d-flex col-12 col-md-9 p-0">
+                <div class="px-4">
+                    <img  class="logo-home" src="assets/imgs/quipux-home.png"/>
+                </div>
+            </div>
+            <div class="col-3  flex-row-reverse d-none d-md-flex">
+                <div class="dropdown align-self-center">
+                    <button class="btn btn-secondary dropdown-toggle bg-transparent border-white text-dark" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        usuario apellido
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">1</button>
+                    <button class="dropdown-item" type="button">2 </button>
+                    <button class="dropdown-item" type="button">3 </button>
+                    </div>
+                </div>
+                <i class="fas fa-align-left h-100"></i>
+            </div>
+        </div>
+      </div>
+        <ng-container *ngIf="'Articulo' == StringDatoVista  ">
+            <app-articulos
+            [dataInfoContact] = "infoContact"
+            [item] = "IdArticle"
+            [ArticleService] = "products"
+            ></app-articulos></ng-container>
+        <ng-container *ngIf="'Empresa' == StringDatoVista ">
+            <app-empresas
+            [dataInfoContact] = "infoContact"
+            ></app-empresas>
+        </ng-container>
+        <ng-container *ngIf="StringDatoVista != 'Articulo' && StringDatoVista != 'Empresa'">
+            <app-home></app-home>
+        </ng-container>
+  </div>
+</div>
